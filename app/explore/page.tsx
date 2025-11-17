@@ -28,7 +28,7 @@ export default async function ExplorePage() {
   return (
     <div className="container mt-5">
       <h1 className="mb-4">Explore Data Wilayah (Public API)</h1>
-      <p>Data ini diambil dari API publik dan dapat digunakan untuk mengisi pilihan lokasi pada form pengaduan.</p>
+      <p>Data ini diambil dari API publik dan dapat digunakan untuk mengisi pilihan lokasi pada form pengaduan. Dan Masih Dalam Tahap Pengembangan</p>
       
       <div className="card">
         <div className="card-header">

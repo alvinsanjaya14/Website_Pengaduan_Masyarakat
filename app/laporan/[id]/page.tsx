@@ -1,13 +1,11 @@
-// app/laporan/[id]/page.tsx
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma'; // (Akan dibuat di langkah #7)
+import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 
 type PageProps = {
   params: { id: string };
 };
 
-// Fungsi untuk fetch data satu laporan
 async function getDetailLaporan(id: string) {
   const laporan = await prisma.laporan.findUnique({
     where: { id: parseInt(id) },
@@ -19,7 +17,7 @@ export default async function LaporanDetailPage({ params }: PageProps) {
   const laporan = await getDetailLaporan(params.id);
 
   if (!laporan) {
-    notFound(); // Ini akan otomatis memanggil not-found.tsx (langkah #8)
+    notFound();
   }
 
   return (
@@ -40,7 +38,6 @@ export default async function LaporanDetailPage({ params }: PageProps) {
           <small className="text-muted">
             Dilaporkan pada: {new Date(laporan.createdAt).toLocaleString('id-ID')}
           </small>
-          {/* b. Tombol Back */}
           <Link href="/laporan" className="btn btn-secondary">
             &larr; Kembali ke Daftar
           </Link>
